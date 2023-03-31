@@ -33,7 +33,7 @@
     - sudo cp -i /etc/kubernetes/admin.conf /home/ubuntu/.kube/config
     - sudo chown 1000:1000 /home/ubuntu/.kube/config
     - kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
-- On K8S run the copied kubeadm join message
+- On K8S run the copied kubeadm join message and --ignore-preflight-errors=all to the end of it
 - Access jenkins on port 8080 from web browser:
     - add AWS credentials => name: aws-iam-user type: username with password
     - add dockerhub credentials => name: dockerhub type: username with password

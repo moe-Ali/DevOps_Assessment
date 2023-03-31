@@ -4,8 +4,9 @@
   tasks:
     - name: Copy directory
       copy:
-        src: ./k8s
+        src: ./k8s/
         dest: /opt/
-
+        remote_src: yes
+        
     - name: Run kubectl apply
       shell: "kubectl apply -f /opt/k8s"
