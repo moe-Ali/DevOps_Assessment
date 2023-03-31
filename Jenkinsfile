@@ -43,9 +43,9 @@ pipeline {
         echo "This is deploy stage number ${BUILD_NUMBER}"
         sh """
         export BUILD_NUMBER=\$(cat ../push_number.txt)
-        mv Deployment/deploy.yaml Deployment/deploy.yaml.tmp
-        cat Deployment/deploy.yaml.tmp | envsubst > Deployment/deploy.yaml
-        rm -f Deployment/deploy.yaml.tmp
+        mv k8s/deployment.yaml k8s/deployment.yaml.tmp
+        cat k8s/deployment.yaml.tmp | envsubst > k8s/deployment.yaml
+        rm -f k8s/deployment.yaml.tmp
         ansible-playbook ./ansible_cd/playbook.yaml -i ./ansible_cd/inventory
         """
       }
