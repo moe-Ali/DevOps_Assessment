@@ -25,13 +25,15 @@
     - kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 - On K8S run the copied kubeadm join message
 - Access jenkins on port 8080 from web browser:
-    - add aws credentials => name: aws-iam-user type: username with password
+    - add AWS credentials => name: aws-iam-user type: username with password
     - add dockerhub credentials => name: dockerhub type: username with password
     - create pipeline that will pull from GitHub (https://github.com/moe-Ali/DevOps_Assessment)
     - add terraform plugin
 - On GitHub add a webhook for Jenkins server
 - Make changes in the code to see it works
-
+## to cleanup
+- python main.py
+- Enter 2 to destroy the infrastructure on AWS using Terraform
 ## Notes:
 - kubeadmin kube-system pods keeps restarting i tryed to solve this problem alot but i couldnt so i suggest using eks or kubeadmin on ec2 with 2 CPU and 2GB RAM at least
 - for better pipeline preformance use Jenkins ec2 hight than t2.micro or add another ec2 as Jenkins slave
