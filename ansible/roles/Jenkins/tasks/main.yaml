@@ -48,3 +48,6 @@
   copy:
     src: ../../devops_assessment.pem 
     dest: /opt/
+
+- name: Add K8S_master to known hosts
+  
