@@ -4,7 +4,7 @@
   tasks:
     - name: Copy directory
       copy:
-        src: ./k8s/
+        src: /opt/k8s/
         dest: /opt
 
     - name: Run kubectl apply
