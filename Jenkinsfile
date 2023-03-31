@@ -1,12 +1,6 @@
 pipeline {
   agent any
 
-  environment {
-    AWS_ACCESS_KEY_ID = credentials('aws-iam-user').username
-    AWS_SECRET_ACCESS_KEY = credentials('aws-iam-user').password
-    AWS_DEFAULT_REGION = 'us-east-1'
-  }
-
   stages {
     stage('Build Infrastucture') {
       steps {
