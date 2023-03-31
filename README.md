@@ -38,7 +38,6 @@
     - add AWS credentials => name: aws-iam-user type: username with password
     - add dockerhub credentials => name: dockerhub type: username with password
     - create pipeline that will pull from GitHub (https://github.com/moe-Ali/DevOps_Assessment)
-    - add terraform plugin
 - On GitHub add a webhook for Jenkins server
 - Make changes in the code to see it works
 ## to cleanup

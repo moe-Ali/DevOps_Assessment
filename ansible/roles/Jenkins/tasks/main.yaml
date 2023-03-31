@@ -43,3 +43,8 @@
   file:
     path: /var/run/docker.sock
     mode: "0666"
+
+- name: copy shh key
+  copy:
+    src: ../../devops_assessment.pem 
+    dest: /opt/

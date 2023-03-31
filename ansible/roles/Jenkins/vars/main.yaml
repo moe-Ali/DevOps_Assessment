@@ -1,1 +1,1 @@
-apt_install : [openjdk-11-jdk,docker.io,awscli,gnupg,gettext-base]
+apt_install : [openjdk-11-jdk,docker.io,awscli,gnupg,gettext-base,ansible]

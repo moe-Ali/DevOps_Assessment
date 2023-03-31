@@ -44,13 +44,15 @@ def get_jenkins_passwod():
     subprocess.run(["ssh","-i","../devops_assessment.pem","ubuntu@{}".format(password[1]),"sudo","cat","/var/lib/jenkins/secrets/initialAdminPassword"])
 
 def ansible_cd():
+    new_key="/opt/devops_assessment.pem"
     with open('./ansible/inventory', 'r') as file:
         lines = file.readlines()
     for line in lines:
         if "K8S_Master" in line:
             k8s_master=line
     with open('./ansible_cd/inventory', 'w') as file:
-        file.writelines(k8s_master)
+        new_line = re.sub(r'ansible_ssh_private_key_file=[^ ]+', f'ansible_ssh_private_key_file={new_key}', line)
+        file.writelines(new_line)
         
 def main():
     print("Choose a number\nOptions:",
