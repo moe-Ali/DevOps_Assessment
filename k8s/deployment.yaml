@@ -15,7 +15,7 @@ spec:
         app: bakehouse
     spec:
       containers:
-      - image: mohamd556/fixed_soulations:${BUILD_NUMBER}
+      - image: mohamd556/devops_assessment:${BUILD_NUMBER}
         name: bakehouse
         imagePullPolicy: Always
         ports:
