@@ -1,7 +1,7 @@
 # DevOps_assessment
 
 ## Digram
-[!digram](https://github.com/moe-Ali/DevOps_Assessment/blob/master/Diagram/AWS_Infrastructure.png)
+![digram](https://github.com/moe-Ali/DevOps_Assessment/blob/master/Diagram/AWS_Infrastructure.png)
 ## what i did
 - used a python script to:
     - Automate Infrastructure creation using Terraform commands
