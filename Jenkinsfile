@@ -2,17 +2,17 @@ pipeline {
   agent any
 
   stages {
-    // stage('Build Infrastucture') {
-    //   steps {
-    //     withCredentials([usernamePassword(credentialsId: 'aws-iam-user', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-    //     sh '''
-    //       export AWS_DEFAULT_REGION=us-east-1
-    //       terraform -chdir=./terraform init
-    //       terraform -chdir=./terraform apply --auto-approve 
-    //     '''
-    //     }
-    //   }
-    // }
+    stage('Build Infrastucture') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'aws-iam-user', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+        sh '''
+          export AWS_DEFAULT_REGION=us-east-1
+          terraform -chdir=./terraform init
+          terraform -chdir=./terraform apply --auto-approve 
+        '''
+        }
+      }
+    }
     stage('BUILD') {
       steps {
         echo "This is build stage number ${BUILD_NUMBER}"
