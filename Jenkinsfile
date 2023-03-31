@@ -43,6 +43,7 @@ pipeline {
         mv k8s/deployment.yaml k8s/deployment.yaml.tmp
         cat k8s/deployment.yaml.tmp | envsubst > k8s/deployment.yaml
         rm -f k8s/deployment.yaml.tmp
+        [ -d /tmp/k8s ] && rm -r /path/k8s
         mv ./k8s  /tmp/
         ansible-playbook ./ansible_cd/playbook.yaml -i ./ansible_cd/inventory
         """
