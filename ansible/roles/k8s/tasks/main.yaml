@@ -12,8 +12,8 @@
 
 - name: Install transport HTTPS and curl
   apt:
-    name: "{{ item }}"
-  with_items: [apt-transport-https,curl]
+    name: [apt-transport-https,curl]
+    state: present
 
 - name: Add Kubernetes apt key
   apt_key:
@@ -31,11 +31,7 @@
 - name: Install Kubernetes packages
   apt:
     name: [kubelet ,kubeadm ,kubectl]
-
-- name: Install Kubernetes components
-  apt:
-    name: "{{ item }}"
-  with_items: [kubeadm,kubelet,kubectl]
+    state: present
 
 - name: Reload systemd and restart kubelet
   systemd:
