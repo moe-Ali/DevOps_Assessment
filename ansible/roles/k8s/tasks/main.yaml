@@ -5,13 +5,6 @@
   apt: 
     update_cache: true
 
-# - name: Add iptables rule to Docker service
-#   blockinfile:
-#     path: /etc/systemd/system/docker.service.d/10-iptables.conf
-#     content: |
-#       [Service]
-#       ExecStartPost=/sbin/iptables -P FORWARD ACCEPT
-
 - name: Install container runtime
   apt:
     name: docker.io
@@ -38,17 +31,6 @@
 - name: Install Kubernetes packages
   apt:
     name: [kubelet ,kubeadm ,kubectl]
-
-# - name: Get private IP address
-#   set_fact:
-#     private_ip: "{{ ansible_default_ipv4.address }}"
-
-# - name: Add Kubelet environment variable
-#   blockinfile:
-#     path: /etc/systemd/system/kubelet.service.d/20-aws.conf
-#     content: |
-#       [Service]
-#       Environment="KUBELET_EXTRA_ARGS=--node-ip={{private_ip}}"
 
 - name: Install Kubernetes components
   apt:

@@ -38,7 +38,7 @@ pipeline {
     stage('Deploy') {
       steps {
         echo "This is deploy stage number ${BUILD_NUMBER}"
-        // sh "ansible-playbook playbook.yaml"
+        sh "ansible-playbook ./ansible_cd/playbook.yaml -i ././ansible_cd/inventory"
       }
     }
 }

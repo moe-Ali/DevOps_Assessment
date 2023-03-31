@@ -37,4 +37,9 @@
 
 - name: Install terraform 
   apt:
-    name: terraform 
+    name: terraform
+
+- name: Set permissions for /var/run/docker.sock
+  file:
+    path: /var/run/docker.sock
+    mode: "0666"
