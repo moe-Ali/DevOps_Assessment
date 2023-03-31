@@ -19,7 +19,7 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
         sh """
             docker login --username ${USERNAME} --password ${PASSWORD}
-            docker build -t ${USERNAME}/fixed_soulations:${BUILD_NUMBER} .
+            docker build -t ${USERNAME}/devops_assessment:${BUILD_NUMBER} .
         """
         }
       }
@@ -29,7 +29,7 @@ pipeline {
         echo "This is push stage number ${BUILD_NUMBER}"
         withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
         sh """
-            docker push ${USERNAME}/fixed_soulations:${BUILD_NUMBER}
+            docker push ${USERNAME}/devops_assessment:${BUILD_NUMBER}
             echo ${BUILD_NUMBER} > ../push_number.txt
         """
         }
