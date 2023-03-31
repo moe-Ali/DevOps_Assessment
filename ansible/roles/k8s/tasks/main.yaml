@@ -1,0 +1,76 @@
+- name: Turn off swap
+  command: swapoff -a
+
+- name: apt update
+  apt: 
+    update_cache: true
+
+# - name: Add iptables rule to Docker service
+#   blockinfile:
+#     path: /etc/systemd/system/docker.service.d/10-iptables.conf
+#     content: |
+#       [Service]
+#       ExecStartPost=/sbin/iptables -P FORWARD ACCEPT
+
+- name: Install container runtime
+  apt:
+    name: docker.io
+    state: present
+
+- name: Install transport HTTPS and curl
+  apt:
+    name: "{{ item }}"
+  with_items: [apt-transport-https,curl]
+
+- name: Add Kubernetes apt key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+- name: Add K8S apt repository
+  apt_repository:
+    repo: 'deb https://apt.kubernetes.io/ kubernetes-xenial main'
+    state: present
+
+- name: Apt update after adding K8S repository
+  apt: 
+    update_cache: true
+
+- name: Install Kubernetes packages
+  apt:
+    name: [kubelet ,kubeadm ,kubectl]
+
+# - name: Get private IP address
+#   set_fact:
+#     private_ip: "{{ ansible_default_ipv4.address }}"
+
+# - name: Add Kubelet environment variable
+#   blockinfile:
+#     path: /etc/systemd/system/kubelet.service.d/20-aws.conf
+#     content: |
+#       [Service]
+#       Environment="KUBELET_EXTRA_ARGS=--node-ip={{private_ip}}"
+
+- name: Install Kubernetes components
+  apt:
+    name: "{{ item }}"
+  with_items: [kubeadm,kubelet,kubectl]
+
+- name: Reload systemd and restart kubelet
+  systemd:
+    name: kubelet
+    daemon_reload: yes
+    state: restarted
+
+# - name: Initialize Kubernetes cluster
+#   command: kubeadm init --token-ttl 0 --ignore-preflight-errors=all
+
+# - name: Set KUBECONFIG environment variable
+#   lineinfile:
+#     path: ~/.bash_profile
+#     line: 'export KUBECONFIG=/etc/kubernetes/admin.conf'
+#   vars:
+#     kubectl_path: /usr/local/bin/kubectl
+#   environment:
+#     KUBECONFIG: /etc/kubernetes/admin.conf
+
+

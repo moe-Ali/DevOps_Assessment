@@ -1,0 +1,40 @@
+- name: Add Jenkins key
+  get_url:
+    url:  https://pkg.jenkins.io/debian/jenkins.io-2023.key
+    dest: /usr/share/keyrings/jenkins-keyring.asc
+  register: jenkins_key
+
+- name: Touch a file
+  file:
+    path: /etc/apt/sources.list.d/jenkins.list
+    state: touch
+
+- name: Add Jenkins repository
+  shell: echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+  when: jenkins_key.changed
+
+- name: Apt update
+  apt: 
+    update_cache: true
+
+- name: Apt install
+  apt:
+    name: "{{apt_install}}"
+
+- name: Install jenkins 
+  apt:
+    name: jenkins 
+
+- name: Import HashiCorp GPG key
+  shell: 'wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg'
+
+- name: Add the official HashiCorp repository
+  shell: 'echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list'
+
+- name: Apt update
+  apt: 
+    update_cache: true
+
+- name: Install terraform 
+  apt:
+    name: terraform 
