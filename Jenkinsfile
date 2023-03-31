@@ -8,7 +8,7 @@ pipeline {
         sh '''
           export AWS_DEFAULT_REGION=us-east-1
           terraform -chdir=./terraform init
-          terraform -chdir=./terraform apply -auto-approve 
+          terraform -chdir=./terraform apply --auto-approve 
         '''
         }
       }
