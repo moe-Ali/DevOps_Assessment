@@ -2,13 +2,23 @@
 
 ## Digram
 ![digram](https://github.com/moe-Ali/DevOps_Assessment/blob/master/Diagram/AWS_Infrastructure.png)
+
+## Tools:
+- Python and Bash for scripting
+- Terraform for Infrastructure As Code
+- Ansible for Configuration As Code
+- Jenkins for Continuous Integration/Continuous Deployment
+- Docker for Containerization
+- Kuberenates for Orchestration
+- AWS to build the infrastructure on
 ## what i did
-- used a python script to:
+- Created S3 bucket and DynamoDB table to work as the backend for Terraform(stores terraform.tfstat in s3 and terraform.lock in DynamoDB)
+- Used a python script to:
     - Automate Infrastructure creation using Terraform commands
     - Install Jenkins and kubeadm on the machines using Ansible
     - Print out the initialAdminPassword of Jenkins
 
-- then used Jenkinsfile to:
+- Used Jenkinsfile to:
     - Apply the new changes into the infrastructure code (Terraform)
     - Create image from Nginx and use ./website as the webpage the will be displayed
     - Pushed the image to my DockerHub account by the tag of the version of the Jenkins pipeline run
