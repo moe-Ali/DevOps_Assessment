@@ -43,10 +43,8 @@ pipeline {
         mv k8s/deployment.yaml k8s/deployment.yaml.tmp
         cat k8s/deployment.yaml.tmp | envsubst > k8s/deployment.yaml
         rm -f k8s/deployment.yaml.tmp
-        mv ./k8s  /opt/
-        ansible-playbook ./ansible_cd/playbook.yaml -i ./ansible_cd/inventory
         """
-      }
+        ansiblePlaybook credentialsId: 'secret_key', disableHostKeyChecking: true, installation: 'Ansible', inventory: '/var/lib/jenkins/workspace/devops_assessment/ansible_cd/inventory', playbook: '/var/lib/jenkins/workspace/devops_assessment/ansible_cd/playbook.yaml'       }
     }
 }
 }
