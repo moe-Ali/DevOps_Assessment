@@ -43,16 +43,3 @@
     daemon_reload: yes
     state: restarted
 
-# - name: Initialize Kubernetes cluster
-#   command: kubeadm init --token-ttl 0 --ignore-preflight-errors=all
-
-# - name: Set KUBECONFIG environment variable
-#   lineinfile:
-#     path: ~/.bash_profile
-#     line: 'export KUBECONFIG=/etc/kubernetes/admin.conf'
-#   vars:
-#     kubectl_path: /usr/local/bin/kubectl
-#   environment:
-#     KUBECONFIG: /etc/kubernetes/admin.conf
-
-

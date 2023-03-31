@@ -1,6 +1,7 @@
-# DevOps_project
+# DevOps_assessment
 
-# what i did
+## Digram
+## what i did
 - used a python script to:
     - Automate Infrastructure creation using Terraform commands
     - Install Jenkins and kubeadm on the machines using Ansible
@@ -12,7 +13,7 @@
     - Pushed the image to my DockerHub account by the tag of the version of the Jenkins pipeline run
     - Used the pushed docker image in making a deployment file and used service type NodePort to be accessed at port 30000
     - Used Ansible to ssh to the Master node and run the deployment and service files
-# Steps:
+## Steps:
 - python main.py
 - Enter 4 for full project (Terraform apply and Ansible)
 - On K8S_Master run:
@@ -30,7 +31,7 @@
 - On GitHub add a webhook for Jenkins server
 - Make changes in the code to see it works
 
-# Notes:
+## Notes:
 - kubeadmin kube-system pods keeps restarting i tryed to solve this problem alot but i couldnt so i suggest using eks or kubeadmin on ec2 with 2 CPU and 2GB RAM at least
-
+- for better pipeline preformance use Jenkins ec2 hight than t2.micro or add another ec2 as Jenkins slave
 - assuming the bakehouse code is the Microservice, this code was copied from one of my instructor at ITI Eng.Kareem

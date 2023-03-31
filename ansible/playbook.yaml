@@ -1,7 +1,6 @@
 - name: DevOps Project
   become: true
   hosts: all
-  gather_facts: false
   roles:
     - { role: roles/Jenkins, when: inventory_hostname == "jenkins_server"}
     - { role: roles/k8s, when: inventory_hostname == "K8S_Master" or inventory_hostname == "K8S_Worker"}
