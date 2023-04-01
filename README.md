@@ -33,7 +33,7 @@ This is a full devops project on AWS done only by using AWS free tier and free p
     - Automate Infrastructure creation using Terraform commands
     - Install Jenkins and kubeadm on the machines using Ansible
     - Print out the initialAdminPassword of Jenkins
-- Used Jenkinsfile to:
+- created Jenkins pipeline that pulls this repo and use Jenkinsfile to:
     - Apply the new changes into the infrastructure code (Terraform)
     - Create image from Nginx and use ./website as the webpage the will be displayed
     - Push the image to my DockerHub account (mohamd556) by the tag of the number of the Jenkins pipeline run
