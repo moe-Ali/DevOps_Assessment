@@ -1,1 +1,1 @@
-jenkins_server ansible_host=3.84.89.30 ansible_user=ubuntu ansible_ssh_private_key_file=/opt/devops_assessment.pem 
+K8S_Master ansible_host=107.21.35.28 ansible_user=ubuntu ansible_ssh_private_key_file=/opt/devops_assessment.pem
