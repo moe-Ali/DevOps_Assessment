@@ -21,7 +21,7 @@ This is a full devops project on AWS done only by using AWS free tier and free p
 - Used Jenkinsfile to:
     - Apply the new changes into the infrastructure code (Terraform)
     - Create image from Nginx and use ./website as the webpage the will be displayed
-    - Pushed the image to my DockerHub account by the tag of the version of the Jenkins pipeline run
+    - Push the image to my DockerHub account (mohamd556) by the tag of the number of the Jenkins pipeline run
     - Use the pushed docker image in making a deployment file and used service type NodePort to be accessed at port 30000
     - Use Ansible to ssh to the Master node and apply the deployment and service files
 ## Steps to run the project
