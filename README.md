@@ -14,22 +14,25 @@ This is a full devops project on AWS done only by using AWS free tier and free p
 - AWS to build the infrastructure on
 ## What i did
 - Created S3 bucket and DynamoDB table to work as the backend for Terraform(stores terraform.tfstat in s3 and terraform.lock in DynamoDB)
-- Used a python script to:
-    - Automate Infrastructure creation using Terraform commands
-    - Install Jenkins and kubeadm on the machines using Ansible
-    - Print out the initialAdminPassword of Jenkins
-- Used terraform to build AWS infrastructure that contains:
+- Used Terraform to build AWS infrastructure that contains:
     - network module that contains:
         - vpc
         - public subnet
         - route table for the public subnet
         - internet gateway
     - using 3(Jenkins,Master_node,Worker_node) of ec2 module that contains:
-        - ami which is a data type resource that searchs on aws for the latest  ubuntu ami
+        - ami which is a data type resource that searchs on AWS for the latest  ubuntu ami
         - instance of the type t2.micro
         - security group attached to the instance
     - making keypair and storing it localy
     - remote-state.tf to use S3 and DynamoDB as backend
+- used Ansible to configure the AWS instances:
+    - jenkins role for the Jenkins server
+    - k8s role for Master_node and Worker node
+- Used a python script to:
+    - Automate Infrastructure creation using Terraform commands
+    - Install Jenkins and kubeadm on the machines using Ansible
+    - Print out the initialAdminPassword of Jenkins
 - Used Jenkinsfile to:
     - Apply the new changes into the infrastructure code (Terraform)
     - Create image from Nginx and use ./website as the webpage the will be displayed
