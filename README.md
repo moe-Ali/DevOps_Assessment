@@ -11,7 +11,7 @@ This is a full devops project on AWS done only by using AWS free tier and free p
 - Docker for Containerization
 - Kuberenates for Orchestration
 - AWS to build the infrastructure on
-## what i did
+## What i did
 - Created S3 bucket and DynamoDB table to work as the backend for Terraform(stores terraform.tfstat in s3 and terraform.lock in DynamoDB)
 - Used a python script to:
     - Automate Infrastructure creation using Terraform commands
