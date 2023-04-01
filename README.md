@@ -37,6 +37,7 @@
 - Access jenkins on port 8080 from web browser:
     - add AWS credentials => name: aws-iam-user type: username with password
     - add dockerhub credentials => name: dockerhub type: username with password
+    - add dockerhub credentials => name: githublogin type: username with password
     - create pipeline that will pull from GitHub (https://github.com/moe-Ali/DevOps_Assessment)
 - On GitHub add a webhook for Jenkins server
 - Make changes in the code to see it works
@@ -46,7 +47,7 @@
 ## Notes
 - kubeadmin kube-system pods keeps restarting i tryed to solve this problem alot but i couldnt so i suggest using eks or kubeadmin on ec2 with 2 CPU and 2GB RAM at least
 - for better pipeline preformance use Jenkins ec2 hight than t2.micro or add another ec2 as Jenkins slave
-- assuming the bakehouse code is the Microservice, this code was copied from one of my instructor at ITI Eng.Kareem
+- assuming the website(bakehouse) code is the Microservice, this code was copied from one of my instructor at ITI Eng.Kareem
 
 ## Screenshots
 ![webhook](https://github.com/moe-Ali/DevOps_Assessment/blob/master/screenshots/webhook.png)
