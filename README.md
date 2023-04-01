@@ -1,5 +1,5 @@
 # DevOps_assessment
-This is a full devops project on AWS done only by using AWS free tier and free programes
+This is a full devops project on AWS done only by using AWS free tier and free programs
 ## Digram
 ![digram](https://github.com/moe-Ali/DevOps_Assessment/blob/master/Diagram/AWS_Infrastructure.png)
 
