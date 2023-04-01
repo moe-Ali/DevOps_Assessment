@@ -1,8 +1,8 @@
 - name: DevOps Project
-  become: true
   hosts: all
   tasks:
     - name: Copy directory
+      become: true
       copy:
         src: /tmp/k8s
         dest: /tmp
