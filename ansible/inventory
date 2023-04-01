@@ -1,3 +1,3 @@
-K8S_Worker ansible_host=54.243.3.85 ansible_user=ubuntu ansible_ssh_private_key_file=../../devops_assessment.pem 
-K8S_Master ansible_host=54.86.36.219 ansible_user=ubuntu ansible_ssh_private_key_file=../../devops_assessment.pem 
-jenkins_server ansible_host=3.84.89.30 ansible_user=ubuntu ansible_ssh_private_key_file=../../devops_assessment.pem 
+jenkins_server ansible_host=3.92.255.170 ansible_user=ubuntu ansible_ssh_private_key_file=../../devops_assessment.pem 
+K8S_Master ansible_host=107.21.35.28 ansible_user=ubuntu ansible_ssh_private_key_file=../../devops_assessment.pem 
+K8S_Worker ansible_host=3.86.157.219 ansible_user=ubuntu ansible_ssh_private_key_file=../../devops_assessment.pem 
