@@ -5,6 +5,7 @@ This is a full devops project on AWS done only by using AWS free tier and free p
 
 ## Tools:
 - Python and Bash for scripting
+- Git for version control
 - Terraform for Infrastructure As Code
 - Ansible for Configuration As Code
 - Jenkins for Continuous Integration/Continuous Deployment
