@@ -40,6 +40,8 @@ This is a full devops project on AWS done only by using AWS free tier and free p
     - Use the pushed docker image in making a deployment file and used service type NodePort to be accessed at port 30000
     - Use Ansible to ssh to Kubernates Master node and apply the deployment and service files
 ## Steps to run the project
+- git clone https://github.com/moe-Ali/DevOps_Assessment
+- cd DevOps_Assessment
 - python main.py
 - Enter 4 for full project (Terraform apply and Ansible)
 - On K8S_Master run:
