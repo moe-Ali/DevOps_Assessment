@@ -47,6 +47,7 @@ This is a full devops project on AWS done only by using AWS free tier and free p
 ## Notes
 - kubeadmin kube-system pods keeps restarting i tryed to solve this problem alot but i couldnt so i suggest using eks or kubeadmin on ec2 with 2 CPU and 2GB RAM at least
 - for better pipeline preformance use Jenkins ec2 hight than t2.micro or add another ec2 as Jenkins slave
+- we can use autoscaling group for the worker nodes but this will get us out of free tier
 - assuming the website(bakehouse) code is the Microservice, this code was copied from one of my instructor at ITI Eng.Kareem
 
 ## Screenshots
